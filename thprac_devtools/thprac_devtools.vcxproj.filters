@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\3rdParty">
+      <UniqueIdentifier>{01dcbf03-7738-41c7-960f-6cf1d8143d03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\3rdParty\ImGui">
+      <UniqueIdentifier>{3c827faa-7ef4-41ac-b1e2-93b4e1213d89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\3rdParty\MetroHash">
+      <UniqueIdentifier>{0d0fb9bc-1399-42e6-98b7-720283743a5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\3rdParty">
+      <UniqueIdentifier>{2f0072fc-8236-428f-bfae-a93769783a98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\3rdParty\ImGui">
+      <UniqueIdentifier>{208c483c-fd15-4914-9fac-9fb80db74e7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\3rdParty\rapidjson">
+      <UniqueIdentifier>{cb6ba5e0-3867-41b2-82fc-a8bcd29635cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\3rdParty\MetroHash">
+      <UniqueIdentifier>{5c964b20-3119-4a2e-8aed-d24fd09d18d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\ImGui\imgui.cpp">
+      <Filter>Source Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\ImGui\imgui_demo.cpp">
+      <Filter>Source Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\ImGui\imgui_draw.cpp">
+      <Filter>Source Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\ImGui\imgui_impl_dx9.cpp">
+      <Filter>Source Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\ImGui\imgui_impl_win32.cpp">
+      <Filter>Source Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\ImGui\imgui_tables.cpp">
+      <Filter>Source Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\ImGui\imgui_widgets.cpp">
+      <Filter>Source Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\ImGui\implot.cpp">
+      <Filter>Source Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\ImGui\implot_demo.cpp">
+      <Filter>Source Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\ImGui\implot_items.cpp">
+      <Filter>Source Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="loc_json.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="exe_sig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\MetroHash\metrohash128.cpp">
+      <Filter>Source Files\3rdParty\MetroHash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3rdParty\ImGui\imgui_stdlib.cpp">
+      <Filter>Source Files\3rdParty\ImGui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\3rdParty\ImGui\imconfig.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\imgui.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\imgui_freetype.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\imgui_impl_dx9.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\imgui_impl_win32.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\imgui_internal.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\imgui_user.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\implot.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\implot_internal.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\imstb_rectpack.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\imstb_textedit.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\imstb_truetype.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\allocators.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\cursorstreamwrapper.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\document.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\encodedstream.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\encodings.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\filereadstream.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\filewritestream.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\fwd.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\istreamwrapper.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\memorybuffer.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\memorystream.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\ostreamwrapper.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\pointer.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\prettywriter.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\rapidjson.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\reader.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\schema.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\stream.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\stringbuffer.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\rapidjson\include\rapidjson\writer.h">
+      <Filter>Header Files\3rdParty\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\MetroHash\metrohash128.h">
+      <Filter>Header Files\3rdParty\MetroHash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\MetroHash\platform.h">
+      <Filter>Header Files\3rdParty\MetroHash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdParty\ImGui\imgui_stdlib.h">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\3rdParty\ImGui\imgui_user.inl">
+      <Filter>Header Files\3rdParty\ImGui</Filter>
+    </None>
+  </ItemGroup>
+</Project>

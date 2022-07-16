@@ -1,0 +1,9 @@
+.vs/
+
+*.exe
+*.obj
+*.ilk
+*.pdb
+*.idb
+*.log
+*.tlog
