@@ -82,10 +82,12 @@ void exe_sig_gui() {
         "This will generate a template for an exe signature which will include the oepCode and the MetroHash\n"
         "All other information you will still have to fill out manually"
     );
-    if (ImGui::Button("Input File")) {
-        if (!exeFn)
-            free((void*)exeFn);
-        exeFn = OpenFileDialog(L"Application (*.exe)\0*.exe\0");
+    if (ImGui::Button("Input file")) {
+        if (auto temp = OpenFileDialog(L"Application (*.exe)\0*.exe\0")) {
+            if (exeFn)
+                free((void*)exeFn);
+            exeFn = temp;
+        }
     }
     ImGui::SameLine();
     ImGui::TextUnformatted(exeFn ? exeFn : "");

@@ -728,9 +728,11 @@ void loc_json_gui() {
 	static std::string locDef = "";
 	static const char* inFn = NULL;
 	if (ImGui::Button("Input file")) {
-		if (inFn)
-			free((void*)inFn);
-		inFn = OpenFileDialog(L"JSON file (*.json)\0*.json\0");
+		if (auto temp = OpenFileDialog(L"JSON file (*.json)\0*.json\0")) {
+			if (inFn)
+				free((void*)inFn);
+			inFn = temp;
+		}
 	}
 	ImGui::SameLine();
 	ImGui::TextUnformatted(inFn ? inFn : "");
