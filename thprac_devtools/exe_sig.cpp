@@ -127,5 +127,4 @@ void exe_sig_gui() {
     ImVec2 wndSize = ImGui::GetWindowSize();
     ImGui::InputTextMultiline("exeSig", exeSig, 2048, { wndSize.x, wndSize.y });
     ImGui::EndChild();
-    ImGui::EndTabItem();
 }

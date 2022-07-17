@@ -38,10 +38,12 @@ int WINAPI wWinMain(
 			if (GuiTabItem("Generate thprac_locale_def.h from a JSON file")) {
 				extern void loc_json_gui();
 				loc_json_gui();
+				ImGui::EndTabItem();
 			}
 			if (GuiTabItem("Generate a template for an exe signature")) {
 				extern void exe_sig_gui();
 				exe_sig_gui();
+				ImGui::EndTabItem();
 			}
 			ImGui::EndTabBar();
 		}

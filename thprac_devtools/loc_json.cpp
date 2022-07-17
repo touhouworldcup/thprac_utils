@@ -781,6 +781,4 @@ after_generate:
 	ImVec2 wndSize = ImGui::GetWindowSize();
 	ImGui::InputTextMultiline("locDef", &locDef, { wndSize.x, wndSize.y });
 	ImGui::EndChild();
-
-	ImGui::EndTabItem();
 }
