@@ -65,9 +65,8 @@ bool GetExeInfo(void* exeBuffer, size_t exeSize, ExeSig& exeSigOut)
         }
     }
 
-    MetroHash128 metro;
     if (exeSize < (1 << 23)) {
-        metro.Hash((uint8_t*)exeBuffer, exeSize, (uint8_t*)exeSigOut.metroHash);
+        MetroHash128::Hash((uint8_t*)exeBuffer, exeSize, (uint8_t*)exeSigOut.metroHash);
     }
 
     return true;
