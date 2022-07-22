@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "metrohash128.h"
 #include <util.h>
+#include "window.h"
 
 struct ExeSig {
     uint32_t timeStamp;
@@ -93,14 +94,26 @@ void exe_sig_gui() {
     ImGui::TextUnformatted(exeFn ? exeFn : "");
     if (ImGui::Button("Generate") && exeFn) {
         HANDLE hFile = CreateFileW(utf8_to_utf16(exeFn).c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+        if (hFile == INVALID_HANDLE_VALUE) {
+            MessageBoxW(GuiGetWindow(), L"Failed to open file", L"Couldn't generate exe signature", MB_ICONERROR);
+            goto after_generate_button;
+        }
+        defer(CloseHandle(hFile));
         SIZE_T fileSize = GetFileSize(hFile, NULL);
         HANDLE hFileMap = CreateFileMappingA(hFile, NULL, PAGE_READONLY, 0, fileSize, NULL);
+        if (!hFileMap) {
+            MessageBoxW(GuiGetWindow(), L"Failed to create file mapping", L"Couldn't generate exe signature", MB_ICONERROR);
+            goto after_generate_button;
+        }
+        defer(CloseHandle(hFileMap));
         void* pFileMapView = MapViewOfFile(hFileMap, FILE_MAP_READ, 0, 0, fileSize);
+        if (!pFileMapView) {
+            MessageBoxW(GuiGetWindow(), L"Failed to map file to memory", L"Couldn't generate exe signature", MB_ICONERROR);
+            goto after_generate_button;
+        }
+        defer(UnmapViewOfFile(pFileMapView));
         ExeSig out;
         GetExeInfo(pFileMapView, fileSize, out);
-        UnmapViewOfFile(pFileMapView);
-        CloseHandle(hFileMap);
-        CloseHandle(hFile);
 
         sprintf_s(exeSig,
             "    { \"idstr\",\n"
@@ -122,6 +135,7 @@ void exe_sig_gui() {
             out.metroHash[0], out.metroHash[1], out.metroHash[2], out.metroHash[3]
         );
     }
+    after_generate_button:
     ImGui::NewLine();
     ImGui::BeginChild(69);
     ImVec2 wndSize = ImGui::GetWindowSize();
