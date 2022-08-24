@@ -1,4 +1,8 @@
 .vs/
+.vscode/
+Debug/
+Release/
+x64/
 
 *.exe
 *.obj
@@ -7,3 +11,4 @@
 *.idb
 *.log
 *.tlog
+*.user
