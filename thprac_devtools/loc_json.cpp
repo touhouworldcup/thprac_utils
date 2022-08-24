@@ -13,6 +13,24 @@
 #include "util.h"
 #include "window.h"
 
+using rapidjson::Document;
+
+// Collections
+using std::vector;
+using std::map;
+using std::unordered_map;
+using std::set;
+using std::pair;
+
+// Strings
+using std::string;
+using std::wstring;
+using std::wstring_convert;
+using std::codecvt_utf8;
+
+// Function object
+using std::function;
+
 int vsprintf_append(std::string& str, const char* format, va_list va) {
 	va_list va2;
 
@@ -91,9 +109,6 @@ if (statement) \
 	break; \
 }
 
-using rapidjson::Document;
-using namespace std;
-
 string g_current_game;
 string g_current_section;
 
@@ -138,7 +153,7 @@ struct game_t
 	string nspace;
 	vector<section_t> sections;
 	vector<pair< string, rapidjson::Value>> groups;
-	
+
 	static map<string, loc_str_t> glossary;
 	static set<wchar_t> glyph_range_zh;
 	static set<wchar_t> glyph_range_en;
@@ -185,7 +200,7 @@ int GetGroupDepth(rapidjson::Value& value)
 void PrintGroupSize(std::string& output, rapidjson::Value& value)
 {
 	vector<rapidjson::SizeType> result;
-	function<void(rapidjson::Value&, unsigned int)> getSizeLimit = 
+	function<void(rapidjson::Value&, unsigned int)> getSizeLimit =
 		[&](rapidjson::Value& value, unsigned int dim)
 	{
 		if (value.IsArray())
@@ -236,8 +251,8 @@ std::string GetEscapedStr(std::string& str)
 			escaped_str.insert(i, "\\");
 			i++;
 			length++;
-        } 
-		else if (escaped_str[i] == '\\') 
+        }
+		else if (escaped_str[i] == '\\')
 		{
             if (i + 1 != length && escaped_str[i + 1] != '0') {
                 escaped_str.insert(i, "\\");
@@ -365,7 +380,7 @@ bool section_t::FillWith(rapidjson::Value& sec)
 
 void loc_json(rapidjson::Document& doc, std::string& output)
 {
-	
+
 	// Iterate through games
 	vector<game_t> games;
 	for (auto game_itr = doc.MemberBegin(); game_itr != doc.MemberEnd(); ++game_itr)
@@ -471,7 +486,7 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 			printf_warn("Warning: In game \"%s\": Invalid groups value, ignoring." ENDL, g_current_game.c_str());
 		}
 		}
-		
+
 	}
 
 	/******************************************************************************************/
