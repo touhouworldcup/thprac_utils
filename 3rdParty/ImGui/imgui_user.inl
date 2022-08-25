@@ -1,3 +1,7 @@
+// Disable warnings for convenience in building thprac_utils
+#pragma warning(disable: 4100 4189)
+// All further contents of this file are (effectively) unchanged
+
 // Changes required to implement the minimize button:
 // 1. imgui.h: Change Begin() declaration: Add p_min.
 // 2. imgui.cpp: Change RenderWindowTitleBarContents() declaration: Add p_min.
@@ -105,7 +109,7 @@ bool ImGui::ComboAlt(const char* data_ex, const char* label, int* current_item, 
 		const char* item_text;
 		if (!items_getter(data, i, &item_text))
 			item_text = "*Unknown item*";
-		
+
 		if (item_text != data_ex)
 		{
 			PushID((void*)(intptr_t)i);
@@ -311,7 +315,7 @@ void ImGui::EraseColumn(const char* item_id, int columns_count)
 
 #ifdef IMGUI_USER_USE_TLS_FOR_GIMGUI
 // TLS Related
-#define WIN32_LEAN_AND_MEAN 
+#define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <Windows.h>
 namespace ImGui
