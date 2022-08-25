@@ -85,10 +85,12 @@ class etest
 public:
 	int operator[](e1 e)
 	{
+		e; // Circumvents C4100
 		return 1;
 	}
 	int operator[](e2 e)
 	{
+		e; // Circumvents C4100
 		return 2;
 	}
 };
@@ -184,8 +186,9 @@ void AddGlyphRange(loc_str_t& str)
 
 bool ValidateGroup(rapidjson::GenericValue<rapidjson::UTF8<>>& group)
 {
-	const bool isArray = group.IsArray();
-	if (group.IsArray())
+	const bool groupIsArray = group.IsArray();
+	if (groupIsArray)
+		// TODO: This could probably be a range-for
 		for (auto it = group.Begin(); it != group.End(); ++it)
 			if (it->IsArray() ? !ValidateGroup(*it) : !it->IsString())
 				return false;
@@ -796,7 +799,7 @@ after_generate:
 			CloseHandle(hOut);
 		}
 	}
-	ImGui::BeginChild(-69);
+	ImGui::BeginChild(static_cast<unsigned int>(-69));
 	ImVec2 wndSize = ImGui::GetWindowSize();
 	ImGui::InputTextMultiline("locDef", &locDef, { wndSize.x, wndSize.y });
 	ImGui::EndChild();
