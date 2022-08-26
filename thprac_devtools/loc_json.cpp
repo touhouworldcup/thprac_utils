@@ -499,15 +499,15 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 	sprintf_append(output, "static char* th_glossary_str[3][%d]" ENDL "{" ENDL, game_t::glossary.size() + 1);
 	sprintf_append(output, "    {" ENDL "        \"\"," ENDL);
 	for (auto& item : game_t::glossary)
-		sprintf_append(output, "        u8\"%s\"," ENDL, GetEscapedStr(item.second.zh_str).c_str());
+		sprintf_append(output, "        \"%s\"," ENDL, GetEscapedStr(item.second.zh_str).c_str());
 	sprintf_append(output, "    }," ENDL);
 	sprintf_append(output, "    {" ENDL "        \"\"," ENDL);
 	for (auto& item : game_t::glossary)
-		sprintf_append(output, "        u8\"%s\"," ENDL, GetEscapedStr(item.second.en_str).c_str());
+		sprintf_append(output, "        \"%s\"," ENDL, GetEscapedStr(item.second.en_str).c_str());
 	sprintf_append(output, "    }," ENDL);
 	sprintf_append(output, "    {" ENDL "        \"\"," ENDL);
 	for (auto& item : game_t::glossary)
-		sprintf_append(output, "        u8\"%s\"," ENDL, GetEscapedStr(item.second.ja_str).c_str());
+		sprintf_append(output, "        \"%s\"," ENDL, GetEscapedStr(item.second.ja_str).c_str());
 	sprintf_append(output, "    }," ENDL);
 	sprintf_append(output, "};" ENDL ENDL);
 
@@ -541,27 +541,27 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 			sprintf_append(output, "    {" ENDL); // ZH
 			for (size_t i = 0; i < 4; ++i)
 			{
-				sprintf_append(output, "        {" ENDL "            u8\"\"," ENDL);
+				sprintf_append(output, "        {" ENDL "            \"\"," ENDL);
 				for (auto& item : game.sections)
-					sprintf_append(output, "            u8\"%s\"," ENDL, GetEscapedStr(item.loc_str[i].zh_str).c_str());
+					sprintf_append(output, "            \"%s\"," ENDL, GetEscapedStr(item.loc_str[i].zh_str).c_str());
 				sprintf_append(output, "        }," ENDL);
 			}
 			sprintf_append(output, "    }," ENDL);
 			sprintf_append(output, "    {" ENDL); // EN
 			for (size_t i = 0; i < 4; ++i)
 			{
-				sprintf_append(output, "        {" ENDL "            u8\"\"," ENDL);
+				sprintf_append(output, "        {" ENDL "            \"\"," ENDL);
 				for (auto& item : game.sections)
-					sprintf_append(output, "            u8\"%s\"," ENDL, GetEscapedStr(item.loc_str[i].en_str).c_str());
+					sprintf_append(output, "            \"%s\"," ENDL, GetEscapedStr(item.loc_str[i].en_str).c_str());
 				sprintf_append(output, "        }," ENDL);
 			}
 			sprintf_append(output, "    }," ENDL);
 			sprintf_append(output, "    {" ENDL); // JA
 			for (size_t i = 0; i < 4; ++i)
 			{
-				sprintf_append(output, "        {" ENDL "            u8\"\"," ENDL);
+				sprintf_append(output, "        {" ENDL "            \"\"," ENDL);
 				for (auto& item : game.sections)
-					sprintf_append(output, "            u8\"%s\"," ENDL, GetEscapedStr(item.loc_str[i].ja_str).c_str());
+					sprintf_append(output, "            \"%s\"," ENDL, GetEscapedStr(item.loc_str[i].ja_str).c_str());
 				sprintf_append(output, "        }," ENDL);
 			}
 			sprintf_append(output, "    }," ENDL);
