@@ -496,7 +496,7 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 	for (auto& item : game_t::glossary)
 		sprintf_append(output, "    %s," ENDL, item.first.c_str());
 	sprintf_append(output, "};" ENDL ENDL);
-	sprintf_append(output, "static char* th_glossary_str[3][%d]" ENDL "{" ENDL, game_t::glossary.size() + 1);
+	sprintf_append(output, "static const char* th_glossary_str[3][%d]" ENDL "{" ENDL, game_t::glossary.size() + 1);
 	sprintf_append(output, "    {" ENDL "        \"\"," ENDL);
 	for (auto& item : game_t::glossary)
 		sprintf_append(output, "        \"%s\"," ENDL, GetEscapedStr(item.second.zh_str).c_str());
@@ -537,7 +537,7 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 			/******************************************************************************************/
 			// Sections str array
 			/******************************************************************************************/
-			sprintf_append(output, "static char* th_sections_str[3][4][%d]" ENDL "{" ENDL, game.sections.size() + 1);
+			sprintf_append(output, "static const char* th_sections_str[3][4][%d]" ENDL "{" ENDL, game.sections.size() + 1);
 			sprintf_append(output, "    {" ENDL); // ZH
 			for (size_t i = 0; i < 4; ++i)
 			{
@@ -571,7 +571,7 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 			/******************************************************************************************/
 			// Sections BGM
 			/******************************************************************************************/
-			sprintf_append(output, "static uint8_t th_sections_bgm[]" ENDL "{" ENDL "    0," ENDL);
+			sprintf_append(output, "static const uint8_t th_sections_bgm[]" ENDL "{" ENDL "    0," ENDL);
 			for (auto& item : game.sections)
 				sprintf_append(output, "    %d," ENDL, item.bgm_id);
 			sprintf_append(output, "};" ENDL ENDL);
@@ -597,7 +597,7 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 			}
 			for (auto& item : game.sections)
 				cba[item.apperance[0] - 1][item.apperance[1] - 1][item.apperance[2] - 1] = item.name;
-			sprintf_append(output, "static th_sections_t th_sections_cba[%d][%d][%d]" ENDL "{" ENDL, dim0, dim1, dim2 + 1);
+			sprintf_append(output, "static const th_sections_t th_sections_cba[%d][%d][%d]" ENDL "{" ENDL, dim0, dim1, dim2 + 1);
 			for (auto& i1 : cba)
 			{
 				sprintf_append(output, "    {" ENDL);
@@ -640,7 +640,7 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 					cbt_dim2 = sss > cbt_dim2 ? sss : cbt_dim2;
 				}
 			}
-			sprintf_append(output, "static th_sections_t th_sections_cbt[%d][%d][%d]" ENDL "{" ENDL, dim0, 2, cbt_dim2 + 1);
+			sprintf_append(output, "static const th_sections_t th_sections_cbt[%d][%d][%d]" ENDL "{" ENDL, dim0, 2, cbt_dim2 + 1);
 			for (auto& i1 : cbt)
 			{
 				sprintf_append(output, "    {" ENDL);
@@ -667,7 +667,7 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 		/******************************************************************************************/
 		for (auto& group : game.groups)
 		{
-			sprintf_append(output, "static th_glossary_t %s", group.first.c_str());
+			sprintf_append(output, "static const th_glossary_t %s", group.first.c_str());
 			PrintGroupSize(output, group.second);
 			sprintf_append(output, ENDL);
 			PrintGroup(output, group.second);
@@ -686,7 +686,7 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 	/******************************************************************************************/
 	// Glyph Range
 	/******************************************************************************************/
-	sprintf_append(output, "static wchar_t __thprac_loc_range_zh[] {" ENDL);		// zh_CN
+	sprintf_append(output, "static const wchar_t __thprac_loc_range_zh[] {" ENDL);		// zh_CN
 	sprintf_append(output, "    " "0x0020, 0x00FF," ENDL);
 	for (auto code : game_t::glyph_range_zh)
 	{
@@ -695,7 +695,7 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 	}
 	sprintf_append(output, "    0" ENDL "};" ENDL ENDL);
 
-	sprintf_append(output, "static wchar_t __thprac_loc_range_en[] {" ENDL);		// en_US
+	sprintf_append(output, "static const wchar_t __thprac_loc_range_en[] {" ENDL);		// en_US
 	sprintf_append(output, "    " "0x0020, 0x00FF," ENDL);
 	for (auto code : game_t::glyph_range_en)
 	{
@@ -704,7 +704,7 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 	}
 	sprintf_append(output, "    0" ENDL "};" ENDL ENDL);
 
-	sprintf_append(output, "static wchar_t __thprac_loc_range_ja[] {" ENDL);
+	sprintf_append(output, "static const wchar_t __thprac_loc_range_ja[] {" ENDL);
 	sprintf_append(output, "    " "0x0020, 0x00FF," ENDL);						// ja_JP
 	for (auto code : game_t::glyph_range_ja)
 	{
@@ -713,7 +713,7 @@ void loc_json(rapidjson::Document& doc, std::string& output)
 	}
 	sprintf_append(output, "    0" ENDL "};" ENDL ENDL);
 	/*
-	sprintf_append(output, "static wchar_t* __thprac_loc_range[] {" ENDL
+	sprintf_append(output, "static const wchar_t* __thprac_loc_range[] {" ENDL
 		"    __thprac_loc_range_zh," ENDL
 		"    __thprac_loc_range_en," ENDL
 		"    __thprac_loc_range_ja," ENDL"};" ENDL ENDL);
