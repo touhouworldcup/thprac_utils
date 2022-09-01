@@ -1,3 +1,7 @@
+// Disable warnings for convenience in building thprac_utils
+#pragma warning(disable: 4100)
+// All further contents of this file are unchanged
+
 // dear imgui, v1.82
 // (widgets code)
 
