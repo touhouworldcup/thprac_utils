@@ -7,6 +7,11 @@ int WINAPI wWinMain(
 	_In_ PWSTR pCmdLine,
 	_In_ int nCmdShow)
 {
+	// Supresses C4100 (unreferenced formal parameter(s))
+	hPrevInstance;
+	pCmdLine;
+	nCmdShow;
+
 	if (!GuiWndInit(hInstance, L"thprac devtools", L"thprac devtools", 640, 480, 1280, 960)) {
 		return 1;
 	}
