@@ -7,6 +7,11 @@ int WINAPI wWinMain(
 	_In_ PWSTR pCmdLine,
 	_In_ int nCmdShow)
 {
+	// Supresses C4100 (unreferenced formal parameter(s))
+	hPrevInstance;
+	pCmdLine;
+	nCmdShow;
+
 	if (!GuiWndInit(hInstance, L"thprac devtools", L"thprac devtools", 640, 480, 1280, 960)) {
 		return 1;
 	}
@@ -35,7 +40,9 @@ int WINAPI wWinMain(
 		static char exeSig[2048] = {};
 
 		if (ImGui::BeginTabBar("MenuTabBar")) {
-			if (GuiTabItem("Generate thprac_locale_def.h from a JSON file")) {
+			if (GuiTabItem(
+				"Generate thprac_locale_def.(h/cpp) from a JSON file"
+			)) {
 				extern void loc_json_gui();
 				loc_json_gui();
 				ImGui::EndTabItem();
