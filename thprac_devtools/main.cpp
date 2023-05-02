@@ -41,7 +41,7 @@ int WINAPI wWinMain(
 
 		if (ImGui::BeginTabBar("MenuTabBar")) {
 			if (GuiTabItem(
-				"Generate thprac_locale_def.(h/cpp) from a JSON file"
+				"Generate locale_def.(h/cpp) from a JSON file"
 			)) {
 				extern void loc_json_gui();
 				loc_json_gui();
