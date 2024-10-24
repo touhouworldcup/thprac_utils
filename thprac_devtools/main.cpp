@@ -20,6 +20,17 @@ int WINAPI wWinMain(
 	bool isMinimize = false;
 
 	while (GuiNewFrame()) {
+		bool done = false;
+		MSG msg;
+		while (::PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
+		{
+			::TranslateMessage(&msg);
+			::DispatchMessage(&msg);
+			if (msg.message == WM_QUIT)
+				done = true;
+		}
+		if (done)
+			break;
 		ImGui::SetNextWindowSizeConstraints(ImVec2(640.0f, 480.0f), ImVec2(1280.0f, 960.0f));
 		ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f), ImGuiCond_Always);
 		ImGui::SetNextWindowSize(ImVec2(960.0f, 720.0f), ImGuiCond_FirstUseEver);
